@@ -5,6 +5,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+
 @app.route("/", methods=["GET"])
 def index():
 
@@ -13,13 +14,15 @@ def index():
     n2 = request.args.get("n2")
 
     # compare the numbers
-    if n1 > n2:
-        return jsonify({"result": "First number is greater!"})
-    elif n2 > n1:
-        return jsonify({"result": "Second Number is greater!"})
+    if isinstance(n1, (int, float)) and isinstance(n2, (int, float)):
+        if n1 > n2:
+            return jsonify({"result": "First number is greater!"})
+        elif n2 > n1:
+            return jsonify({"result": "Second Number is greater!"})
+        else:
+            return jsonify({"result": "Numbers are equal!"})
     else:
-        return jsonify({"result": "Numbers are equal!"})
-    
+        return jsonify({"result": "Invalid input, try passing n1 and n2 as numbers"})
 
 if __name__ == "__main__":
     # run the app
