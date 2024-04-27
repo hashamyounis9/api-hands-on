@@ -16,9 +16,9 @@ def index():
     # compare the numbers
     if isinstance(n1, (int, float)) and isinstance(n2, (int, float)):
         if n1 > n2:
-            return jsonify({"result": "First number is greater!"})
+            return jsonify({"result": "n1 is greater!"})
         elif n2 > n1:
-            return jsonify({"result": "Second Number is greater!"})
+            return jsonify({"result": "n2 Number is greater!"})
         else:
             return jsonify({"result": "Numbers are equal!"})
     else:
