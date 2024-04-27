@@ -1,3 +1,4 @@
+// this api accepts 2 numbers n1 and n2 as parameters in the URL, compares them and tell which number is greater or if the both numbers are equal
 const express = require("express")
 const cors = require("cors")
 
